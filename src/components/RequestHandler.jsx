@@ -7,8 +7,9 @@ const RequestHandler = () => {
   
         const fetchData = async () => {
             try {
-                const response = await axios.get(import.meta.env.FMC_API_URL);
+                const response = await axios.get(import.meta.env.VITE_FMC_API_URL);
                 console.log('Response:', response.data);
+                console.log("Request sended");
                 toast.success("success");
             } catch (error) {
                 toast.error('Error fetching data:', error);
