@@ -1,28 +1,35 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import {toast} from "sonner";
+import { toast } from 'sonner';
 
 const RequestHandler = () => {
     useEffect(() => {
-  
+
         const fetchData = async () => {
             try {
-                const response = await axios.get(import.meta.env.VITE_FMC_API_URL);
+            
+                const response = await axios.get(`https://cors-anywhere.herokuapp.com/${import.meta.env.FMC_API_URL}`);
+                
+           
                 console.log('Response:', response.data);
-                console.log("Request sended");
-                toast.success("success");
+                console.log("Request sent");
+
+            
+                toast.success("Request successful");
             } catch (error) {
-                toast.error('Error fetching data:', error);
+                
+                console.error('Error fetching data:', error);
+                toast.error(`Error fetching data: ${error.message}`);
             }
         };
 
-     
+   
         fetchData();
 
-   
+       
         const intervalId = setInterval(fetchData, 240000);
 
-
+        
         return () => clearInterval(intervalId);
     }, []);
 
