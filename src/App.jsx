@@ -1,10 +1,10 @@
 import React from 'react'
-import RequestHandler from './components/RequestHandler'
+import AutoClickLinkButton from './components/AutoClickLinkButton'
 
 const App = () => {
   return (
     <div>
-      <RequestHandler></RequestHandler>
+      <AutoClickLinkButton></AutoClickLinkButton>
     </div>
   )
 }
